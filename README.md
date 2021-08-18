@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Run Instructions
+1. Make sure that `node` and `npm` are installed on your computer
+2. Download this repo
+3. After the download finishes, `cd` into the directory and run `npm install`
+5. Then, update the `UserPoolId` and `ClientId` variables in `UserPool.js`
+6. Then update the `ACCESS_KEY`, `SECRET_KEY`, and `UserPoolId` variables in `ListUsers.js`
+7. Then, run `npm start` to run the app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Resources
+### Tutorial video 
+- https://www.youtube.com/watch?v=U9rIWahHwOI&list=PLRFRM3JNuCktnzEUihQOHINPFjmfHKZMg&index=1
+### Playlists 
+- https://www.youtube.com/playlist?list=PLRFRM3JNuCktnzEUihQOHINPFjmfHKZMg
+- https://www.youtube.com/playlist?list=PLaxxQQak6D_eARpHp6JdMq3rvD5A-WU9N
+### Delete user
+- https://www.npmjs.com/package/amazon-cognito-identity-js
 
-## Available Scripts
 
-In the project directory, you can run:
+# Notes
 
-### `npm start`
+### ATTRIBUTES
+- ID
+- name
+- email
+- customer_id
+- customer_name
+- password
+- email_vertified (builtin?)
+- role
+- secondary_employee_id
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Delete user
+```javascript
+cognitoUser.deleteUser(function(err, result) {
+	if (err) {
+		alert(err.message || JSON.stringify(err));
+		return;
+	}
+	console.log('call result: ' + result);
+});
+```

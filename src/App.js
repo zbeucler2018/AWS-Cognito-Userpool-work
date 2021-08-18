@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
+import SignUp from './Components/SignUp/SignUp'
+import Login from './Components/Login/Login'
+import ListUsers from './Components/ListUsers/ListUsers'
+
 function App() {
+  const [showUsers, setShowUsers] = React.useState(false)
+  const [showSignUp, setShowSignUp] = React.useState(false)
+  const [showLogin, setShowLogin] = React.useState(false)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={() => setShowSignUp(!showSignUp)}>Go To Sign Up</button>
+      <button onClick={() => setShowLogin(!showLogin)}>Go To Login</button>
+      <button onClick={() => setShowUsers(!showUsers)}>Go To Users</button>
+
+
+      <div style={{display: showSignUp ? 'block' : 'none'}}>
+        <SignUp />
+      </div>
+
+      <div style={{display: showLogin ? 'block' : 'none'}}>
+        <Login />
+      </div>
+      
+      <div style={{display: showUsers ? 'block' : 'none'}}>
+        <ListUsers />
+      </div>
+
     </div>
   );
 }
